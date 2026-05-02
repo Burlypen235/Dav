@@ -22,5 +22,6 @@ Then open `http://localhost:8000`.
 
 ## Notes
 
-- Enter your OpenAI API key when prompted.
+- Create an account and log in from the new auth screen (stored in browser localStorage for demo use only).
+- Enter your OpenAI API key when prompted after login (saved per user in localStorage).
 - For production-grade parity with ChatGPT (voice mode, tool calling, image generation, retrieval, deep research, auth, billing, moderation, compliance, admin controls), move API calls to a secure backend and add service integrations.

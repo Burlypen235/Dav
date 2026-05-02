@@ -7,9 +7,32 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="app">
-    <aside class="sidebar">
+  <div id="authGate" class="auth-gate">
+    <div class="auth-card glass">
       <h1>CerebraX</h1>
+      <p class="subtitle">Sign in to continue your chats.</p>
+      <form id="authForm" class="auth-form">
+        <label for="authName">Username</label>
+        <input id="authName" type="text" autocomplete="username" required />
+
+        <label for="authPass">Password</label>
+        <input id="authPass" type="password" autocomplete="current-password" required />
+
+        <div class="auth-actions">
+          <button type="submit" id="loginBtn">Log In</button>
+          <button type="button" id="registerBtn" class="secondary">Create Account</button>
+        </div>
+      </form>
+      <p id="authStatus" class="status"></p>
+    </div>
+  </div>
+
+  <div id="appRoot" class="app hidden">
+    <aside class="sidebar glass">
+      <div class="brand-row">
+        <h1>CerebraX</h1>
+        <button id="logoutBtn" class="secondary compact">Logout</button>
+      </div>
       <button id="newChat">+ New Chat</button>
       <div id="history" class="history"></div>
       <div class="settings">
@@ -25,17 +48,17 @@
     </aside>
 
     <main class="main">
-      <header>
+      <header class="glass">
         <h2>Your personal AI assistant</h2>
         <div class="actions">
-          <button id="exportBtn">Export</button>
-          <button id="clearBtn">Clear</button>
+          <button id="exportBtn" class="secondary">Export</button>
+          <button id="clearBtn" class="danger">Clear</button>
         </div>
       </header>
 
       <section id="chat" class="chat"></section>
 
-      <section class="tools">
+      <section class="tools glass-soft">
         <label class="tool"><input type="checkbox" id="webSearch" /> Web Search</label>
         <label class="tool"><input type="checkbox" id="streaming" checked /> Streaming</label>
         <label class="tool"><input type="checkbox" id="memory" checked /> Memory</label>
