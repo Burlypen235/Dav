@@ -3,74 +3,72 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CerebraX</title>
+  <title>Student Test Generator</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div id="authGate" class="auth-gate">
-    <div class="auth-card glass">
-      <h1>CerebraX</h1>
-      <p class="subtitle">Sign in to continue your chats.</p>
-      <form id="authForm" class="auth-form">
-        <label for="authName">Username</label>
-        <input id="authName" type="text" autocomplete="username" required />
+  <main class="container">
+    <header class="card">
+      <h1>Student Test Generator</h1>
+      <p>Create balanced tests for every level of study in seconds.</p>
+    </header>
 
-        <label for="authPass">Password</label>
-        <input id="authPass" type="password" autocomplete="current-password" required />
-
-        <div class="auth-actions">
-          <button type="submit" id="loginBtn">Log In</button>
-          <button type="button" id="registerBtn" class="secondary">Create Account</button>
-        </div>
-      </form>
-      <p id="authStatus" class="status"></p>
-    </div>
-  </div>
-
-  <div id="appRoot" class="app hidden">
-    <aside class="sidebar glass">
-      <div class="brand-row">
-        <h1>CerebraX</h1>
-        <button id="logoutBtn" class="secondary compact">Logout</button>
-      </div>
-      <button id="newChat">+ New Chat</button>
-      <div id="history" class="history"></div>
-      <div class="settings">
-        <label>Model</label>
-        <select id="model">
-          <option value="gpt-4.1">GPT-4.1</option>
-          <option value="gpt-4o">GPT-4o</option>
-          <option value="gpt-4.1-mini">GPT-4.1-mini</option>
+    <section class="card form-grid">
+      <label>
+        Study level
+        <select id="studyLevel">
+          <option>Primary School</option>
+          <option>Middle School</option>
+          <option>High School</option>
+          <option>Undergraduate</option>
+          <option>Postgraduate</option>
         </select>
-        <label>System Prompt</label>
-        <textarea id="systemPrompt" rows="4" placeholder="You are CerebraX..."></textarea>
+      </label>
+
+      <label>
+        Subject
+        <input id="subject" type="text" placeholder="e.g. Mathematics, Biology, History" required />
+      </label>
+
+      <label>
+        Topic focus
+        <input id="topic" type="text" placeholder="e.g. Fractions, Cell Structure" required />
+      </label>
+
+      <label>
+        Number of questions
+        <input id="numQuestions" type="number" min="5" max="40" value="10" />
+      </label>
+
+      <label>
+        Difficulty blend
+        <select id="difficulty">
+          <option value="balanced">Balanced</option>
+          <option value="easy">Mostly Easy</option>
+          <option value="hard">Mostly Challenging</option>
+        </select>
+      </label>
+
+      <label>
+        Include answer key
+        <select id="withAnswers">
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </label>
+
+      <div class="actions">
+        <button id="generateBtn" type="button">Generate Test</button>
+        <button id="copyBtn" type="button" class="secondary">Copy</button>
+        <button id="downloadBtn" type="button" class="secondary">Download .txt</button>
       </div>
-    </aside>
+    </section>
 
-    <main class="main">
-      <header class="glass">
-        <h2>Your personal AI assistant</h2>
-        <div class="actions">
-          <button id="exportBtn" class="secondary">Export</button>
-          <button id="clearBtn" class="danger">Clear</button>
-        </div>
-      </header>
-
-      <section id="chat" class="chat"></section>
-
-      <section class="tools glass-soft">
-        <label class="tool"><input type="checkbox" id="webSearch" /> Web Search</label>
-        <label class="tool"><input type="checkbox" id="streaming" checked /> Streaming</label>
-        <label class="tool"><input type="checkbox" id="memory" checked /> Memory</label>
-        <input type="file" id="fileUpload" multiple />
-      </section>
-
-      <form id="composer" class="composer">
-        <textarea id="message" placeholder="Message CerebraX" required></textarea>
-        <button type="submit">Send</button>
-      </form>
-    </main>
-  </div>
+    <section class="card">
+      <h2>Generated Test</h2>
+      <pre id="output">Your test will appear here.</pre>
+    </section>
+  </main>
 
   <script src="app.js"></script>
 </body>
